@@ -168,36 +168,20 @@ class RequestFormScreen: UIViewController {
         view.addSubview(requestMessage)
         
         requestMessage.text = message
-        requestMessage.textAlignment = .left
-        requestMessage.isHidden = true
+        requestMessage.textAlignment = .center
+        requestMessage.numberOfLines = 3
+        requestMessage.textColor = .systemPurple
 
         requestMessage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             requestMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            requestMessage.centerYAnchor.constraint(equalTo: requestInviteButton.centerYAnchor, constant: 40),
+            requestMessage.centerYAnchor.constraint(equalTo: requestInviteButton.centerYAnchor, constant: 80),
             requestMessage.widthAnchor.constraint(equalToConstant: 350),
-            requestMessage.heightAnchor.constraint(equalToConstant: 50)
+            requestMessage.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
 
-    
-//    func setInstruction() {
-//        view.addSubview(instruction)
-//
-//        instruction.text = "Please click below to request an invite!"
-//        instruction.backgroundColor = .white
-//
-//        instruction.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            instruction.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            instruction.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            instruction.widthAnchor.constraint(equalToConstant: 300),
-//            instruction.heightAnchor.constraint(equalToConstant: 50)
-//        ])
-//    }
-//
     func setButton() {
         view.addSubview(requestInviteButton)
 
@@ -216,7 +200,7 @@ class RequestFormScreen: UIViewController {
         
         
         
-        requestInviteButton.addTarget(self, action: #selector(goToRequestFormScreen), for: .touchUpInside)
+        requestInviteButton.addTarget(self, action: #selector(goToNextScreen), for: .touchUpInside)
         
 
     }
@@ -238,9 +222,9 @@ class RequestFormScreen: UIViewController {
         return emailTest.evaluate(with: emailStr)
     }
 
-    @objc func goToRequestFormScreen() {
+    @objc func goToNextScreen() {
         
-        let nenextScreen = RequestFormScreen()
+        let nextScreen = CongratulationsScreen()
         
         if (nameInput.text?.count ?? 0 < 3) {
             nameError.isHidden = false
@@ -267,12 +251,9 @@ class RequestFormScreen: UIViewController {
             setRequestMessage(message: saveToServer(userName: nameInput.text ?? "", userEmail: emailInput.text ?? ""))
             
             if (requestMessage.text == "Registered") {
-                performSegue(withIdentifier: "showCongratulationViewController", sender: self)
+                navigationController?.pushViewController(nextScreen, animated: true)
             }
         }
-        
-//        let nextScreen = RequestFormScreen()
-//        navigationController?.pushViewController(nextScreen, animated: true)
     }
 
 

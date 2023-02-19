@@ -1,18 +1,19 @@
 //
-//  PreRequestScreen.swift
+//  PreCancelScreen.swift
 //  BlinqCodeChallengev3
 //
-//  Created by Chrishane Amarasekara on 19/2/2023.
+//  Created by Chrishane Amarasekara on 20/2/2023.
 //
 
 import UIKit
 
-class PreRequestScreen: UIViewController {
-    
+class PreCancelScreen: UIViewController {
+
     let backgroundImageView = UIImageView()
     let heading = UILabel()
     let instruction = UILabel()
     let requestButton = UIButton()
+    var cancelInvite = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,8 +56,10 @@ class PreRequestScreen: UIViewController {
     func setInstruction() {
         view.addSubview(instruction)
         
-        instruction.text = "Please click below to request an invite!"
+        instruction.text = "If you would like to cancel your invite please click below"
         instruction.backgroundColor = .white
+        instruction.numberOfLines = 2
+        instruction.textAlignment = .center
         
         instruction.translatesAutoresizingMaskIntoConstraints = false
         
@@ -72,10 +75,10 @@ class PreRequestScreen: UIViewController {
         view.addSubview(requestButton)
         
         requestButton.configuration = .filled()
-        requestButton.configuration?.baseBackgroundColor = .systemGreen
-        requestButton.configuration?.title = "Request an Invite"
+        requestButton.configuration?.baseBackgroundColor = .systemRed
+        requestButton.configuration?.title = "Cancel your Invite"
         
-        requestButton.addTarget(self, action: #selector(goToNextScreen), for: .touchUpInside)
+//        requestButton.addTarget(self, action: #selector(goToRequestFormScreen), for: .touchUpInside)
         
         requestButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -86,13 +89,28 @@ class PreRequestScreen: UIViewController {
             requestButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
+        requestButton.addTarget(self, action: #selector(goToNextScreen), for: .touchUpInside)
+    
     }
     
     @objc func goToNextScreen() {
-        let nextScreen = RequestFormScreen()
-        navigationController?.pushViewController(nextScreen, animated: true)
+        
+        let nextScreen = CancelInviteScreen()
+        
+        let alert = UIAlertController(title: "Are you sure you would like to cancel your invite", message: "", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Cancel Invite"), style: .default, handler: { _ in
+        NSLog("The \"cancel invite\" alert occured.")
+        self.cancelInvite = true
+        self.navigationController?.pushViewController(nextScreen, animated: true)
+            }))
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No, I changed my mind", comment: "Do not cancel invite"), style: .default, handler: { _ in
+        NSLog("The \"cancel invite\" alert occured.")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
 
-
 }
-

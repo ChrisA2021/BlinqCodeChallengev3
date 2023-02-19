@@ -17,6 +17,12 @@
 		2A3A7DFF29A1D0CA0082F491 /* BlinqCodeChallengev3UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A7DFE29A1D0CA0082F491 /* BlinqCodeChallengev3UITestsLaunchTests.swift */; };
 		2A3A7E0C29A1D6590082F491 /* RequestFormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A7E0B29A1D6590082F491 /* RequestFormScreen.swift */; };
 		2A3A7E0E29A1F4B50082F491 /* APIRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A7E0D29A1F4B50082F491 /* APIRequester.swift */; };
+		2A3A7E1029A2225B0082F491 /* CongratulationsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A7E0F29A2225B0082F491 /* CongratulationsScreen.swift */; };
+		2A3A7E1229A222C20082F491 /* GIFLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A7E1129A222C20082F491 /* GIFLoader.swift */; };
+		2A3A7E1429A257B80082F491 /* Confetti.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2A3A7E1329A257B80082F491 /* Confetti.gif */; };
+		2A3A7E1629A25B090082F491 /* PreCancelScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A7E1529A25B090082F491 /* PreCancelScreen.swift */; };
+		2A3A7E1829A25DEC0082F491 /* CancelInviteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A7E1729A25DEC0082F491 /* CancelInviteScreen.swift */; };
+		2A3A7E1A29A2642C0082F491 /* Rain.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2A3A7E1929A2642C0082F491 /* Rain.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,12 @@
 		2A3A7DFE29A1D0CA0082F491 /* BlinqCodeChallengev3UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinqCodeChallengev3UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2A3A7E0B29A1D6590082F491 /* RequestFormScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFormScreen.swift; sourceTree = "<group>"; };
 		2A3A7E0D29A1F4B50082F491 /* APIRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequester.swift; sourceTree = "<group>"; };
+		2A3A7E0F29A2225B0082F491 /* CongratulationsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationsScreen.swift; sourceTree = "<group>"; };
+		2A3A7E1129A222C20082F491 /* GIFLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFLoader.swift; sourceTree = "<group>"; };
+		2A3A7E1329A257B80082F491 /* Confetti.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Confetti.gif; path = ../../../../../Downloads/Confetti.gif; sourceTree = "<group>"; };
+		2A3A7E1529A25B090082F491 /* PreCancelScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreCancelScreen.swift; sourceTree = "<group>"; };
+		2A3A7E1729A25DEC0082F491 /* CancelInviteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelInviteScreen.swift; sourceTree = "<group>"; };
+		2A3A7E1929A2642C0082F491 /* Rain.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Rain.gif; path = ../../../../../Downloads/Rain.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +113,17 @@
 		2A3A7DDA29A1D0C90082F491 /* BlinqCodeChallengev3 */ = {
 			isa = PBXGroup;
 			children = (
+				2A3A7E1929A2642C0082F491 /* Rain.gif */,
+				2A3A7E1329A257B80082F491 /* Confetti.gif */,
 				2A3A7E0D29A1F4B50082F491 /* APIRequester.swift */,
+				2A3A7E1129A222C20082F491 /* GIFLoader.swift */,
 				2A3A7DDB29A1D0C90082F491 /* AppDelegate.swift */,
 				2A3A7DDD29A1D0C90082F491 /* SceneDelegate.swift */,
 				2A3A7DDF29A1D0C90082F491 /* PreRequestScreen.swift */,
 				2A3A7E0B29A1D6590082F491 /* RequestFormScreen.swift */,
+				2A3A7E0F29A2225B0082F491 /* CongratulationsScreen.swift */,
+				2A3A7E1529A25B090082F491 /* PreCancelScreen.swift */,
+				2A3A7E1729A25DEC0082F491 /* CancelInviteScreen.swift */,
 				2A3A7DE429A1D0CA0082F491 /* Assets.xcassets */,
 				2A3A7DE629A1D0CA0082F491 /* LaunchScreen.storyboard */,
 				2A3A7DE929A1D0CA0082F491 /* Info.plist */,
@@ -234,7 +252,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A3A7E1429A257B80082F491 /* Confetti.gif in Resources */,
 				2A3A7DE829A1D0CA0082F491 /* LaunchScreen.storyboard in Resources */,
+				2A3A7E1A29A2642C0082F491 /* Rain.gif in Resources */,
 				2A3A7DE529A1D0CA0082F491 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,8 +281,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A3A7E0E29A1F4B50082F491 /* APIRequester.swift in Sources */,
+				2A3A7E1229A222C20082F491 /* GIFLoader.swift in Sources */,
 				2A3A7DE029A1D0C90082F491 /* PreRequestScreen.swift in Sources */,
 				2A3A7DDC29A1D0C90082F491 /* AppDelegate.swift in Sources */,
+				2A3A7E1829A25DEC0082F491 /* CancelInviteScreen.swift in Sources */,
+				2A3A7E1029A2225B0082F491 /* CongratulationsScreen.swift in Sources */,
+				2A3A7E1629A25B090082F491 /* PreCancelScreen.swift in Sources */,
 				2A3A7DDE29A1D0C90082F491 /* SceneDelegate.swift in Sources */,
 				2A3A7E0C29A1D6590082F491 /* RequestFormScreen.swift in Sources */,
 			);

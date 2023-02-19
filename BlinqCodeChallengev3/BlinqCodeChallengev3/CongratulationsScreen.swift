@@ -1,5 +1,5 @@
 //
-//  PreRequestScreen.swift
+//  CongratulationsScreen.swift
 //  BlinqCodeChallengev3
 //
 //  Created by Chrishane Amarasekara on 19/2/2023.
@@ -7,20 +7,20 @@
 
 import UIKit
 
-class PreRequestScreen: UIViewController {
-    
+class CongratulationsScreen: UIViewController {
+
     let backgroundImageView = UIImageView()
     let heading = UILabel()
-    let instruction = UILabel()
+    let message = UILabel()
     let requestButton = UIButton()
+    let confettiGIF = UIImage.gifImageWithName("Confetti")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
-        setInstruction()
+        setMessage()
         setupButton()
-        setHeading()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
     }
     
     func setBackground() {
@@ -31,68 +31,50 @@ class PreRequestScreen: UIViewController {
         backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        backgroundImageView.image = UIImage(named: "Background")
+        backgroundImageView.image = confettiGIF
     }
     
-    func setHeading() {
-        view.addSubview(heading)
+    func setMessage() {
+        view.addSubview(message)
         
-        heading.text = "Broccoli & Co."
-        heading.backgroundColor = .white
-        heading.textAlignment = .center
+        message.text = "Congratulations your request has been sent to your email"
+        message.backgroundColor = .white
+        message.textAlignment = .center
+        message.numberOfLines = 2
         
-        heading.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            heading.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            heading.centerYAnchor.constraint(equalTo: instruction.centerYAnchor, constant: -80),
-            heading.widthAnchor.constraint(equalToConstant: 200),
-            heading.heightAnchor.constraint(equalToConstant: 50)
-        ])
-
-    }
-    
-    func setInstruction() {
-        view.addSubview(instruction)
-        
-        instruction.text = "Please click below to request an invite!"
-        instruction.backgroundColor = .white
-        
-        instruction.translatesAutoresizingMaskIntoConstraints = false
+        message.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            instruction.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            instruction.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            instruction.widthAnchor.constraint(equalToConstant: 300),
-            instruction.heightAnchor.constraint(equalToConstant: 50)
+            message.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            message.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            message.widthAnchor.constraint(equalToConstant: 300),
+            message.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
     func setupButton() {
         view.addSubview(requestButton)
-        
+
         requestButton.configuration = .filled()
         requestButton.configuration?.baseBackgroundColor = .systemGreen
-        requestButton.configuration?.title = "Request an Invite"
-        
+        requestButton.configuration?.title = "Dismiss"
+
         requestButton.addTarget(self, action: #selector(goToNextScreen), for: .touchUpInside)
-        
+
         requestButton.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             requestButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            requestButton.centerYAnchor.constraint(equalTo: instruction.centerYAnchor, constant: 80),
+            requestButton.centerYAnchor.constraint(equalTo: message.centerYAnchor, constant: 80),
             requestButton.widthAnchor.constraint(equalToConstant: 200),
             requestButton.heightAnchor.constraint(equalToConstant: 50)
         ])
-        
+
     }
     
     @objc func goToNextScreen() {
-        let nextScreen = RequestFormScreen()
+        let nextScreen = PreCancelScreen()
         navigationController?.pushViewController(nextScreen, animated: true)
     }
 
-
 }
-
