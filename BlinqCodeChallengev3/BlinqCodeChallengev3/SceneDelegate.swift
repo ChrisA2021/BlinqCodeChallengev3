@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let defaults = UserDefaults.standard
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -20,7 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: PreRequestScreen())
+        if (defaults.bool(forKey: "isUserRegistered")) {
+            window?.rootViewController = UINavigationController(rootViewController: PreCancelScreen())
+        }
+        else {
+            window?.rootViewController = UINavigationController(rootViewController: PreRequestScreen())
+        }
         window?.makeKeyAndVisible()
     }
 

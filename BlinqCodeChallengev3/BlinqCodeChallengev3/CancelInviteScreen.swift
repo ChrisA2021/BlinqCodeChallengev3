@@ -14,6 +14,7 @@ class CancelInviteScreen: UIViewController {
     let message = UILabel()
     let requestButton = UIButton()
     let confettiGIF = UIImage.gifImageWithName("Rain")
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ class CancelInviteScreen: UIViewController {
         setMessage()
         setupButton()
         view.backgroundColor = .white
+        defaults.set(false, forKey: "isUserRegistered")
     }
     
     func setBackground() {

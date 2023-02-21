@@ -14,6 +14,7 @@ class CongratulationsScreen: UIViewController {
     let message = UILabel()
     let requestButton = UIButton()
     let confettiGIF = UIImage.gifImageWithName("Confetti")
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ class CongratulationsScreen: UIViewController {
         setMessage()
         setupButton()
         view.backgroundColor = .white
+        defaults.set(true, forKey: "isUserRegistered")
     }
     
     func setBackground() {

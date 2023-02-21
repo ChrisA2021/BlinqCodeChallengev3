@@ -248,9 +248,13 @@ class RequestFormScreen: UIViewController {
         }
         
         if (checkFormValid()) {
+            setRequestMessage(message: "Your request is being sent")
             setRequestMessage(message: saveToServer(userName: nameInput.text ?? "", userEmail: emailInput.text ?? ""))
             
             if (requestMessage.text == "Registered") {
+//                navigationController?.
+//                navigationController?.popToRootViewController(animated: true)
+//                navigationController?.show(nextScreen, sender: self)
                 navigationController?.pushViewController(nextScreen, animated: true)
             }
         }

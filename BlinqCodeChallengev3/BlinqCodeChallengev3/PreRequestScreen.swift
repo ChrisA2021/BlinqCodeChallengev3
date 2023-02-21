@@ -91,6 +91,9 @@ class PreRequestScreen: UIViewController {
     @objc func goToNextScreen() {
         let nextScreen = RequestFormScreen()
         navigationController?.pushViewController(nextScreen, animated: true)
+        //Couldn't get app to work properly with modal views
+//        navigationController?.present(nextScreen, animated: true)
+
     }
 
 
