@@ -15,10 +15,15 @@ class CongratulationsScreen: UIViewController {
     let requestButton = UIButton()
     let confettiGIF = UIImage.gifImageWithName("Confetti")
     let defaults = UserDefaults.standard
+    //Broccoli Image not working
+    let broccoliImageView = UIImageView()
+    let broccoliImage = UIImage(named: "HappyBroccoli")
+//    let broccoliImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
+//        setBroccoliImage()
         setMessage()
         setupButton()
         view.backgroundColor = .white
@@ -35,6 +40,19 @@ class CongratulationsScreen: UIViewController {
         
         backgroundImageView.image = confettiGIF
     }
+    
+    func setBroccoliImage() {
+        view.addSubview(broccoliImageView)
+        broccoliImageView.translatesAutoresizingMaskIntoConstraints = false
+        broccoliImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        broccoliImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        broccoliImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        broccoliImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        broccoliImage?.resizableImage(withCapInsets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8), resizingMode: .stretch)
+        broccoliImageView.image = broccoliImage
+    }
+
     
     func setMessage() {
         view.addSubview(message)
